@@ -1,0 +1,52 @@
+
+<div class="dashboad-container">
+<mat-toolbar color="primary">
+
+ <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>   
+ <h1 class="app-name">S-Prestamos</h1>
+
+    <div fxFlex fxLayout="row" fxLayoutAlingn="flex-end" > 
+        <ul fxLayout="row" fxLayoutGap="20px">
+            <li>
+                <button mat-icon-buttom>
+                    <mat-icon>help_outline</mat-icon>
+                </button>
+            </li>
+            <li>
+                <button mat-button [matMenuTriggerFor]="menu">
+                    <mat-icon>person_outline</mat-icon>
+                </button>
+            </li>
+            <mat-menu  #menu="matMenu" >
+                <mat-icon>exit_to_app</mat-icon>
+                Cerrar Sesion
+            </mat-menu>
+
+        </ul>
+    </div>
+
+</mat-toolbar>
+
+<!-- empieza el sidenav -->
+<mat-sidenav-container class="sidnav-container"
+                    [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+                    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'">
+                            [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+                            <!-- profile -->
+                            <mat-nav-list>
+                             <div class="profile-card">
+                                <div class="header">
+                                     <h1>Oscar Rodriguez</h1>  
+
+                                 </div>   
+                            </div>
+
+                            </mat-nav-list>
+
+                    </mat-sidenav>                                    
+</mat-sidenav-container>
+<router-outlet></router-outlet>
+
+</div>
+
+
